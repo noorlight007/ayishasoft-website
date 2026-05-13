@@ -1,0 +1,279 @@
+"use client"
+import { ServiceCard3D } from "@/components/service-card-3d"
+import { ServiceCardDetailed } from "@/components/service-card-detailed"
+import { SectionHeading } from "@/components/section-heading"
+import { ParticleBackground } from "@/components/particle-background"
+import { CTASection } from "@/components/cta-section"
+import {
+  Code,
+  Smartphone,
+  Cloud,
+  Database,
+  Palette,
+  Shield,
+  Cpu,
+  Globe,
+  Zap,
+  BarChart,
+  Lock,
+  Layers,
+} from "lucide-react"
+import { motion } from "framer-motion"
+
+//import { motion } from "framer-motion"
+
+const services = [
+  {
+    icon: Code,
+    title: "Custom Software Development",
+    description:
+      "Tailored software solutions designed specifically for your business needs, built with modern technologies and best practices.",
+    features: [
+      "Enterprise application development",
+      "Legacy system modernization",
+      "API development and integration",
+      "Microservices architecture",
+      "Scalable and maintainable code",
+    ],
+    technologies: ["React", "Node.js", "Python", "Java", ".NET", "Go"],
+    accentColor: "#3b82f6", // Blue
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile App Development",
+    description:
+      "Native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android.",
+    features: [
+      "iOS and Android native apps",
+      "Cross-platform development",
+      "Progressive Web Apps (PWA)",
+      "App Store optimization",
+      "Ongoing maintenance and updates",
+    ],
+    technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Expo"],
+    accentColor: "#8b5cf6", // Purple
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Solutions",
+    description:
+      "Comprehensive cloud services including migration, infrastructure setup, and optimization for maximum performance.",
+    features: [
+      "Cloud migration strategy",
+      "Infrastructure as Code (IaC)",
+      "Serverless architecture",
+      "Container orchestration",
+      "Cost optimization",
+    ],
+    technologies: ["AWS", "Azure", "Google Cloud", "Docker", "Kubernetes"],
+    accentColor: "#06b6d4", // Cyan
+  },
+  {
+    icon: Database,
+    title: "Data Analytics & AI",
+    description:
+      "Transform your data into actionable insights with advanced analytics, machine learning, and artificial intelligence.",
+    features: [
+      "Business intelligence dashboards",
+      "Predictive analytics",
+      "Machine learning models",
+      "Data pipeline automation",
+      "Real-time data processing",
+    ],
+    technologies: ["Python", "TensorFlow", "PyTorch", "Apache Spark", "Power BI"],
+    accentColor: "#10b981", // Green
+  },
+  // {
+  //   icon: Palette,
+  //   title: "UI/UX Design",
+  //   description:
+  //     "Beautiful, intuitive interfaces that users love, combining aesthetic appeal with functional excellence.",
+  //   features: [
+  //     "User research and personas",
+  //     "Wireframing and prototyping",
+  //     "Visual design and branding",
+  //     "Usability testing",
+  //     "Design system creation",
+  //   ],
+  //   technologies: ["Figma", "Adobe XD", "Sketch", "InVision", "Framer"],
+  //   accentColor: "#f59e0b", // Amber
+  // },
+  {
+  icon: Code,
+  title: "CRM Software from Scratch",
+  description: "Custom-built CRM systems designed to streamline customer management, boost productivity, and enhance business insights.",
+  features: [
+    "Customer data management",
+    "Lead tracking and sales pipeline",
+    "Automation and reporting dashboards"
+  ],
+  technologies: ["Next.js", "Node.js", "MongoDB", "Express.js"],
+  accentColor: "#3b82f6", // Blue
+},
+  {
+    icon: Shield,
+    title: "Cybersecurity",
+    description:
+      "Comprehensive security solutions to protect your digital assets, data, and infrastructure from threats.",
+    features: [
+      "Security audits and assessments",
+      "Penetration testing",
+      "Compliance management",
+      "Incident response planning",
+      "Security training",
+    ],
+    technologies: ["OWASP", "Burp Suite", "Metasploit", "Wireshark", "Nessus"],
+    accentColor: "#ef4444", // Red
+  },
+  {
+    icon: Globe,
+    title: "Web Development",
+    description: "Modern, responsive websites and web applications built with the latest frameworks and technologies.",
+    features: [
+      "Responsive web design",
+      "E-commerce solutions",
+      "Content management systems",
+      "SEO optimization",
+      "Performance optimization",
+    ],
+    technologies: ["Next.js", "React", "Vue.js", "WordPress", "Shopify"],
+    accentColor: "#ec4899", // Pink
+  },
+  {
+    icon: Cpu,
+    title: "IoT Solutions",
+    description:
+      "Connect and manage your devices with intelligent IoT solutions for smart homes, cities, and industries.",
+    features: [
+      "Device connectivity",
+      "Real-time monitoring",
+      "Data collection and analysis",
+      "Remote device management",
+      "Edge computing",
+    ],
+    technologies: ["MQTT", "Arduino", "Raspberry Pi", "Azure IoT", "AWS IoT"],
+    accentColor: "#14b8a6", // Teal
+  },
+  {
+    icon: Zap,
+    title: "DevOps & Automation",
+    description: "Streamline your development and deployment processes with modern DevOps practices and automation.",
+    features: [
+      "CI/CD pipeline setup",
+      "Infrastructure automation",
+      "Monitoring and logging",
+      "Automated testing",
+      "Release management",
+    ],
+    technologies: ["Jenkins", "GitLab CI", "Terraform", "Ansible", "Prometheus"],
+    accentColor: "#eab308", // Yellow
+  },
+  {
+    icon: BarChart,
+    title: "Digital Transformation",
+    description: "Guide your organization through digital transformation with strategic planning and implementation.",
+    features: [
+      "Digital strategy consulting",
+      "Process automation",
+      "Change management",
+      "Technology roadmap",
+      "ROI optimization",
+    ],
+    technologies: ["Agile", "Scrum", "Lean", "Six Sigma", "ITIL"],
+    accentColor: "#a855f7", // Violet
+  },
+  {
+    icon: Lock,
+    title: "Blockchain Development",
+    description: "Build secure, decentralized applications and smart contracts on various blockchain platforms.",
+    features: [
+      "Smart contract development",
+      "DApp creation",
+      "Token development",
+      "Blockchain integration",
+      "Security audits",
+    ],
+    technologies: ["Ethereum", "Solidity", "Web3.js", "Hyperledger", "Polygon"],
+    accentColor: "#f97316", // Orange
+  },
+  {
+    icon: Layers,
+    title: "Enterprise Solutions",
+    description: "Comprehensive enterprise software solutions including ERP, CRM, and custom business applications.",
+    features: [
+      "ERP implementation",
+      "CRM customization",
+      "Business process automation",
+      "System integration",
+      "Training and support",
+    ],
+    technologies: ["SAP", "Salesforce", "Microsoft Dynamics", "Oracle", "Odoo"],
+    accentColor: "#6366f1", // Indigo
+  },
+]
+
+export function ServicesPageClient() {
+  return (
+    <main className="relative min-h-screen">
+      <ParticleBackground />
+
+      {/* Hero Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0 }}
+        className="relative py-20 md:py-32"
+      >
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+          <SectionHeading
+            title="Our Services"
+            subtitle="Comprehensive software solutions designed to transform your business and drive innovation through cutting-edge technology"
+          />
+        </div>
+      </motion.section>
+
+      {/* Services Grid */}
+      {/* <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="relative py-12"
+      >
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+              >
+                <ServiceCardDetailed {...service} delay={0} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section> */}
+
+      <section className="relative py-12 pb-32">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <ServiceCard3D key={service.title} {...service} delay={index * 0.05} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 2.3 }}
+      >
+        <CTASection />
+      </motion.div>
+    </main>
+  )
+}
+
