@@ -6,4 +6,4 @@ import "./.next/types/routes.d.ts";
 // see https://nextjs.org/docs/app/api-reference/config/typescript for more information.
 
 
-next-env.d.ts
+filename: next-env.d.ts
