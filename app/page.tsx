@@ -8,6 +8,7 @@ import { ContactPreview } from "@/components/contact-preview"
 import { CTASection } from "@/components/cta-section"
 import LogoCarousel from "@/components/logo-carousel"
 import { TechStack } from "@/components/tech-stack"
+import { ProductPortfolio } from "@/components/product-portfolio"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -37,6 +38,9 @@ export default function HomePage() {
       <div id="tech-stack">
         <TechStack />
       </div>
+
+      {/* Product Portfolio */}
+      <ProductPortfolio />
 
       {/* About Preview */}
       <AboutPreview />
