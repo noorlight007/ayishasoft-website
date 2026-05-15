@@ -40,7 +40,9 @@ export default function HomePage() {
       </div>
 
       {/* Product Portfolio */}
-      <ProductPortfolio />
+      <div id="products">
+        <ProductPortfolio />
+      </div>
 
       {/* About Preview */}
       <AboutPreview />

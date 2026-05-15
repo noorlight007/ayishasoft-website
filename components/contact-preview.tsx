@@ -552,8 +552,8 @@ const contactMethods = [
   {
     icon: Mail,
     title: "Email",
-    value: "contact@aryansoftbd.com",
-    link: "mailto:contact@aryansoftbd.com",
+    value: "contact@ayishasoft.com",
+    link: "mailto:contact@ayishasoft.com",
     color: "from-cyan-500 to-blue-500",
     hoverColor: "rgba(6, 182, 212, 0.2)",
     borderColor: "rgba(6, 182, 212, 0.6)",
@@ -572,7 +572,7 @@ const contactMethods = [
   {
     icon: MapPin,
     title: "Location",
-    value: "House:470, Road:8, Baridhara DOHS, Dhaka",
+    value: "188/7 Middle Paikepara, Mirpur 1, Dhaka",
     color: "from-purple-500 to-pink-500",
     hoverColor: "rgba(236, 72, 153, 0.2)",
     borderColor: "rgba(236, 72, 153, 0.6)",
@@ -606,94 +606,6 @@ export function ContactPreview() {
 
   return (
     <>
-      <style jsx global>{`
-        .contact-preview-card {
-          position: relative;
-          background-color: rgba(255, 255, 255, 0.05);
-          border-radius: 1rem;
-          cursor: pointer;
-          display: flex;
-          flex-direction: column;
-          overflow: hidden;
-          border: 2px solid var(--static-border-color, rgba(6, 182, 212, 0.3));
-          transition: all 300ms ease;
-        }
-
-        .contact-preview-card::before,
-        .contact-preview-card::after {
-          border-radius: inherit;
-          content: "";
-          height: 100%;
-          left: 0;
-          opacity: 0;
-          position: absolute;
-          top: 0;
-          transition: opacity 400ms;
-          width: 100%;
-          pointer-events: none;
-        }
-
-        .contact-preview-card::before {
-          background: radial-gradient(
-            450px circle at var(--mouse-x) var(--mouse-y),
-            var(--hover-color, rgba(6, 182, 212, 0.2)),
-            transparent 40%
-          );
-          z-index: 3;
-        }
-
-        .contact-preview-card::after {
-          background: radial-gradient(
-            350px circle at var(--mouse-x) var(--mouse-y),
-            var(--border-color, rgba(6, 182, 212, 0.6)),
-            transparent 40%
-          );
-          z-index: 1;
-          opacity: 0.6;
-        }
-
-        .contact-preview-card:hover {
-          border-color: var(--border-color, rgba(6, 182, 212, 0.6));
-          transform: translateY(-2px);
-          box-shadow: 0 10px 40px -10px var(--border-color, rgba(6, 182, 212, 0.3));
-        }
-
-        .contact-preview-card:hover::before {
-          opacity: 1;
-        }
-
-        .contact-preview-card:hover::after {
-          opacity: 1;
-        }
-
-        #contact-preview-cards .contact-preview-card::after {
-          opacity: 0.6;
-        }
-
-        .contact-preview-card > .card-content {
-          background-color: rgba(15, 15, 15, 0.85);
-          backdrop-filter: blur(12px);
-          border-radius: inherit;
-          display: flex;
-          flex-direction: column;
-          flex-grow: 1;
-          inset: 1px;
-          padding: 1.5rem;
-          position: relative;
-          z-index: 2;
-          height: 100%;
-          transition: all 300ms ease;
-        }
-
-        .contact-preview-card:hover > .card-content {
-          background: radial-gradient(
-            350px circle at var(--mouse-x) var(--mouse-y),
-            var(--border-color, rgba(6, 182, 212, 0.6)),
-            transparent 40%
-          );
-        }
-      `}</style>
-
       <section id="contact" className="relative py-20 md:py-32">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
           <SectionHeading
@@ -709,19 +621,35 @@ export function ContactPreview() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="contact-preview-card text-center group"
+                className="contact-preview-card group relative bg-white/5 rounded-2xl cursor-pointer flex flex-col overflow-hidden border-2 border-[var(--static-border-color,rgba(6,182,212,0.3))] transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:border-[var(--border-color)] hover:shadow-[0_10px_40px_-10px_var(--border-color)] text-center"
                 style={{
                   '--hover-color': method.hoverColor,
                   '--border-color': method.borderColor,
                   '--static-border-color': method.staticBorderColor,
                 } as React.CSSProperties}
               >
+                {/* Spotlight Overlay (::before) */}
+                <div 
+                  className="absolute inset-0 rounded-[inherit] opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none z-[3]"
+                  style={{
+                    background: `radial-gradient(450px circle at var(--mouse-x) var(--mouse-y), var(--hover-color, rgba(6, 182, 212, 0.2)), transparent 40%)`
+                  }}
+                />
+                
+                {/* Border Glow Overlay (::after) */}
+                <div 
+                  className="absolute inset-0 rounded-[inherit] opacity-60 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none z-[1]"
+                  style={{
+                    background: `radial-gradient(350px circle at var(--mouse-x) var(--mouse-y), var(--border-color, rgba(6, 182, 212, 0.6)), transparent 40%)`
+                  }}
+                />
+
                 {method.link ? (
-                  <a href={method.link} className="card-content block text-center">
+                  <a href={method.link} className="card-content relative z-[2] inset-[1px] bg-[#0f0f0f]/85 backdrop-blur-xl rounded-[inherit] flex flex-col flex-grow p-6 transition-all duration-300 ease-in-out group-hover:bg-[#0f0f0f]/90 group-hover:bg-[radial-gradient(350px_circle_at_var(--mouse-x)_var(--mouse-y),var(--border-color,rgba(6,182,212,0.6)),transparent_40%)] block text-center">
                     <ContactMethodContent method={method} />
                   </a>
                 ) : (
-                  <div className="card-content text-center">
+                  <div className="card-content relative z-[2] inset-[1px] bg-[#0f0f0f]/85 backdrop-blur-xl rounded-[inherit] flex flex-col flex-grow p-6 transition-all duration-300 ease-in-out group-hover:bg-[#0f0f0f]/90 group-hover:bg-[radial-gradient(350px_circle_at_var(--mouse-x)_var(--mouse-y),var(--border-color,rgba(6,182,212,0.6)),transparent_40%)] text-center">
                     <ContactMethodContent method={method} />
                   </div>
                 )}

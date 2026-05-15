@@ -108,7 +108,7 @@ import { motion } from "framer-motion"
 import { Mail, Phone, MapPin, Linkedin, X, Github, Facebook, Instagram, Youtube, FileText } from "lucide-react"
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://www.linkedin.com/company/aryan-soft/", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/ayisha-soft/", label: "LinkedIn" },
   // { icon: X, href: "https://x.com/aryansoft2025", label: "X" },
   // { icon: Instagram, href: "https://www.instagram.com/aryan_soft_ltd/", label: "Instagram" },
   // { icon: Youtube, href: "https://www.youtube.com/@AryanSoftLtd", label: "YouTube" },
@@ -144,13 +144,13 @@ export function Footer() {
             {/* Contact Info */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <a
-                href="mailto:contact@aryansoftbd.com"
+                href="mailto:contact@ayishasoft.com"
                 className="flex flex-col items-center gap-2 text-white hover:text-cyan-400 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center group-hover:bg-cyan-500/30 transition-colors">
                   <Mail className="w-5 h-5" />
                 </div>
-                <span className="text-sm font-medium">contact@aryansoftbd.com</span>
+                <span className="text-sm font-medium">contact@ayishasoft.com</span>
               </a>
               <a
                 href="tel:+88001301807991"
@@ -165,7 +165,7 @@ export function Footer() {
                 <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center">
                   <MapPin className="w-5 h-5" />
                 </div>
-                <span className="text-sm font-medium text-center">House:470, Road:8, Baridhara DOHS, Dhaka</span>
+                <span className="text-sm font-medium text-center">188/7 Middle Paikepara, Mirpur 1, Dhaka</span>
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@ export function Footer() {
         {/* Social Links and Copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border/50 gap-6">
           <p className="text-sm text-white font-medium">
-            © 2025 - 2026 Aryan Soft Ltd. All rights reserved.
+            © 2025 - 2026 Ayisha Soft Ltd. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4">
